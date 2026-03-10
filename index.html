@@ -3,130 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>氣泡排序法介紹</title>
+    <title>排序法介紹</title>
     <style>
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-}
-
-header, footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-main {
-    padding: 1rem 2rem;
-}
-
-#arrayContainer {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-}
-
-.bar {
-    width: 30px;
-    margin: 0 2px;
-    background: #4CAF50;
-    color: #fff;
-    text-align: center;
-}
-
-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-}
-</style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #4CAF50, #f4f4f4);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+        a:hover {
+            background: #555;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>氣泡排序法 (Bubble Sort)</h1>
-    </header>
-
-    <main>
-        <section id="introduction">
-            <h2>什麼是氣泡排序法？</h2>
-            <p>
-                氣泡排序法是一種簡單的排序演算法，透過依序比較相鄰的元素，
-                將較大的元素「冒泡」到序列的末端。重複這個過程直到整個陣列排序完成。
-            </p>
-        </section>
-
-        <section id="steps">
-            <h2>步驟說明</h2>
-            <ol>
-                <li>從陣列的第 0 個元素開始比較相鄰的兩個元素。</li>
-                <li>如果順序錯誤（前一個元素大於後一個元素），則交換它們。</li>
-                <li>繼續比較下一對相鄰元素，直到陣列末端。</li>
-                <li>重複以上步驟直到沒有需要交換的元素。</li>
-            </ol>
-        </section>
-
-        <section id="visualization">
-            <h2>動畫示例</h2>
-            <div id="arrayContainer"></div>
-            <button id="startBtn">開始排序</button>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 氣泡排序教學</p>
-    </footer>
-
-    <script>
-function createBars(arr) {
-    const container = document.getElementById('arrayContainer');
-    container.innerHTML = '';
-    arr.forEach((value) => {
-        const bar = document.createElement('div');
-        bar.classList.add('bar');
-        bar.style.height = value * 5 + 'px';
-        bar.textContent = value;
-        container.appendChild(bar);
-    });
-}
-
-async function bubbleSort(arr) {
-    let len = arr.length;
-    let bars = document.getElementsByClassName('bar');
-    for (let i = 0; i < len; i++) {
-        for (let j = 0; j < len - i - 1; j++) {
-            bars[j].style.background = '#e33';
-            bars[j+1].style.background = '#e33';
-            await sleep(200);
-            if (arr[j] > arr[j+1]) {
-                // swap
-                [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
-                bars[j].style.height = arr[j] * 5 + 'px';
-                bars[j].textContent = arr[j];
-                bars[j+1].style.height = arr[j+1] * 5 + 'px';
-                bars[j+1].textContent = arr[j+1];
-            }
-            bars[j].style.background = '#4CAF50';
-            bars[j+1].style.background = '#4CAF50';
-        }
-    }
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-document.getElementById('startBtn').addEventListener('click', () => {
-    const array = [];
-    for (let i = 0; i < 10; i++) {
-        array.push(Math.floor(Math.random() * 50) + 1);
-    }
-    createBars(array);
-    bubbleSort(array);
-});
-</script>
+    <h1>排序演算法介紹</h1>
+    <p>
+        排序演算法是計算機科學中的基礎概念，用於將資料依序排列。
+        這裡我們將介紹氣泡排序法，一種簡單且易懂的排序方法。
+    </p>
+    <a href="bubblesort.html">進入氣泡排序法教學</a>
 </body>
 </html>
