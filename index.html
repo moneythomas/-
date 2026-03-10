@@ -1,1 +1,46 @@
-要上傳氣泡排序法的東西
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氣泡排序法介紹</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>氣泡排序法 (Bubble Sort)</h1>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>什麼是氣泡排序法？</h2>
+            <p>
+                氣泡排序法是一種簡單的排序演算法，透過依序比較相鄰的元素，
+                將較大的元素「冒泡」到序列的末端。重複這個過程直到整個陣列排序完成。
+            </p>
+        </section>
+
+        <section id="steps">
+            <h2>步驟說明</h2>
+            <ol>
+                <li>從陣列的第 0 個元素開始比較相鄰的兩個元素。</li>
+                <li>如果順序錯誤（前一個元素大於後一個元素），則交換它們。</li>
+                <li>繼續比較下一對相鄰元素，直到陣列末端。</li>
+                <li>重複以上步驟直到沒有需要交換的元素。</li>
+            </ol>
+        </section>
+
+        <section id="visualization">
+            <h2>動畫示例</h2>
+            <div id="arrayContainer"></div>
+            <button id="startBtn">開始排序</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 氣泡排序教學</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
