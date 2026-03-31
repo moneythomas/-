@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選擇排序法介紹</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; }
+        p { line-height: 1.6; }
+        ul { margin-left: 20px; }
+        code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">回到首頁</a>
+    </nav>
+    <h1>選擇排序法介紹</h1>
+    <p>選擇排序法（Selection Sort）是一種簡單的排序算法。它的工作原理是每次從未排序的部分中選擇最小的元素，然後將其與未排序部分的首元素交換位置。</p>
+
+    <h2>工作原理</h2>
+    <p>選擇排序法將陣列分為已排序和未排序兩部分。初始時，已排序部分為空。每次從未排序部分中找到最小的元素，將其移到已排序部分的末尾。</p>
+
+    <h2>步驟示例</h2>
+    <p>假設我們有一個陣列：[5, 3, 8, 4, 2]</p>
+    <ul>
+        <li>第一步：找到最小元素 2，與第一個元素 5 交換： [2, 3, 8, 4, 5]</li>
+        <li>第二步：從剩餘元素中找到最小元素 3，已在正確位置： [2, 3, 8, 4, 5]</li>
+        <li>第三步：從剩餘元素中找到最小元素 4，與第三個元素 8 交換： [2, 3, 4, 8, 5]</li>
+        <li>第四步：從剩餘元素中找到最小元素 5，與第四個元素 8 交換： [2, 3, 4, 5, 8]</li>
+    </ul>
+
+    <h2>時間複雜度</h2>
+    <ul>
+        <li>最佳情況：O(n²)</li>
+        <li>最壞情況：O(n²)</li>
+        <li>平均情況：O(n²)</li>
+    </ul>
+
+    <h2>優缺點</h2>
+    <h3>優點：</h3>
+    <ul>
+        <li>簡單易懂，實現容易</li>
+        <li>交換次數較少（最多 n-1 次）</li>
+        <li>對於小規模數據效率尚可</li>
+    </ul>
+    <h3>缺點：</h3>
+    <ul>
+        <li>時間複雜度為 O(n²)，對於大規模數據效率低</li>
+        <li>不穩定排序（相同元素的相對位置可能改變）</li>
+    </ul>
+
+    <h2>JavaScript 實現示例</h2>
+    <pre><code>function selectionSort(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex !== i) {
+            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+        }
+    }
+    return arr;
+}
+
+// 測試
+let array = [5, 3, 8, 4, 2];
+console.log(selectionSort(array)); // [2, 3, 4, 5, 8]</code></pre>
+
+    <p>選擇排序法雖然效率不如一些高級排序算法，但由於其簡單性和交換次數少的特性，在某些情況下仍然有用。</p>
+</body>
+</html>
