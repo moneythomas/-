@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入排序法介紹</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; }
+        p { line-height: 1.6; }
+        ul { margin-left: 20px; }
+        code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>插入排序法介紹</h1>
+    <p>插入排序法（Insertion Sort）是一種簡單且直觀的排序算法。它的工作原理類似於我們整理撲克牌時的過程：將每一張牌插入到已經排序好的牌中的適當位置。</p>
+
+    <h2>工作原理</h2>
+    <p>插入排序法將陣列分為兩個部分：已排序的部分和未排序的部分。初始時，已排序的部分只包含第一個元素。然後，依次將未排序部分的元素插入到已排序部分的正確位置。</p>
+
+    <h2>步驟示例</h2>
+    <p>假設我們有一個陣列：[5, 3, 8, 4, 2]</p>
+    <ul>
+        <li>第一步：已排序部分 [5]，未排序部分 [3, 8, 4, 2]。將 3 插入到已排序部分： [3, 5]</li>
+        <li>第二步：已排序部分 [3, 5]，未排序部分 [8, 4, 2]。8 已經在正確位置： [3, 5, 8]</li>
+        <li>第三步：已排序部分 [3, 5, 8]，未排序部分 [4, 2]。將 4 插入： [3, 4, 5, 8]</li>
+        <li>第四步：已排序部分 [3, 4, 5, 8]，未排序部分 [2]。將 2 插入： [2, 3, 4, 5, 8]</li>
+    </ul>
+
+    <h2>時間複雜度</h2>
+    <ul>
+        <li>最佳情況：O(n) - 當陣列已經排序時</li>
+        <li>最壞情況：O(n²) - 當陣列逆序時</li>
+        <li>平均情況：O(n²)</li>
+    </ul>
+
+    <h2>優缺點</h2>
+    <h3>優點：</h3>
+    <ul>
+        <li>簡單易懂，實現容易</li>
+        <li>對於小規模數據或近乎排序的數據效率較高</li>
+        <li>穩定排序（相同元素的相對位置不變）</li>
+        <li>空間複雜度為 O(1)，只需要常數額外空間</li>
+    </ul>
+    <h3>缺點：</h3>
+    <ul>
+        <li>對於大規模數據效率較低</li>
+        <li>不適合用於外部排序</li>
+    </ul>
+
+    <h2>JavaScript 實現示例</h2>
+    <pre><code>function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        let key = arr[i];
+        let j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+    return arr;
+}
+
+// 測試
+let array = [5, 3, 8, 4, 2];
+console.log(insertionSort(array)); // [2, 3, 4, 5, 8]</code></pre>
+
+    <p>插入排序法雖然效率不如一些高級排序算法，但由於其簡單性和在特定情況下的高效性，它仍然是一個值得學習的基礎算法。</p>
+</body>
+</html>
