@@ -5,16 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>插入排序法介紹</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { color: #333; }
-        h2 { color: #555; }
-        p { line-height: 1.6; }
-        ul { margin-left: 20px; }
-        code { background-color: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
-        pre { background-color: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        header, footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        main {
+            padding: 1rem 2rem;
+        }
+
+        #arrayContainer {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .bar {
+            width: 30px;
+            margin: 0 2px;
+            background: #4CAF50;
+            color: #fff;
+            text-align: center;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="index.html">回到首頁</a>
+    </nav>
     <h1>插入排序法介紹</h1>
     <p>插入排序法（Insertion Sort）是一種簡單且直觀的排序算法。它的工作原理類似於我們整理撲克牌時的過程：將每一張牌插入到已經排序好的牌中的適當位置。</p>
 
