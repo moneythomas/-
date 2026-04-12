@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合併排序法介紹</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header, footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        main {
+            padding: 1rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 1.5rem;
+        }
+        code, pre {
+            background: #f4f4f4;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: Consolas, 'Courier New', monospace;
+        }
+        pre {
+            overflow-x: auto;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        ul, ol {
+            margin-left: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>合併排序法介紹</h1>
+        <nav><a href="index.html">回到首頁</a></nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>什麼是合併排序法？</h2>
+            <p>
+                合併排序法（Merge Sort）是一種經典的排序演算法，屬於分治法（Divide and Conquer）。
+                它先將待排序陣列不斷拆分成更小的子問題，然後再將排序後的子陣列逐步合併成最終結果。
+            </p>
+        </section>
+
+        <section>
+            <h2>演算法流程</h2>
+            <ol>
+                <li>如果陣列長度小於或等於 1，則視為已排序，直接返回。</li>
+                <li>將陣列分成兩個大致相等的子陣列。</li>
+                <li>遞迴地對左子陣列和右子陣列各自進行合併排序。</li>
+                <li>將兩個已排序的子陣列合併成一個完整的排序陣列。</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>具體範例</h2>
+            <p>假設數列為：<strong>[5, 2, 8, 1, 6]</strong></p>
+            <ul>
+                <li>拆分成 <code>[5, 2]</code> 與 <code>[8, 1, 6]</code></li>
+                <li>繼續拆分並排序成 <code>[2, 5]</code> 與 <code>[1, 6, 8]</code></li>
+                <li>合併兩個已排序陣列，得到最終結果 <code>[1, 2, 5, 6, 8]</code></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>時間與空間複雜度</h2>
+            <ul>
+                <li>時間複雜度：最佳、平均、最壞情況皆為 <strong>O(n log n)</strong></li>
+                <li>空間複雜度：<strong>O(n)</strong>，合併階段需要額外暫存陣列</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>優缺點</h2>
+            <h3>優點</h3>
+            <ul>
+                <li>排序時間穩定且高效，適合大型資料集</li>
+                <li>與原始資料的初始順序無關</li>
+                <li>是一種穩定排序演算法，相等元素順序不會改變</li>
+            </ul>
+            <h3>缺點</h3>
+            <ul>
+                <li>需要額外的暫存空間，空間複雜度為 O(n)</li>
+                <li>遞迴實作較為複雜，不一定適合極端記憶體受限環境</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>JavaScript 實作範例</h2>
+            <pre><code>function mergeSort(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    const mid = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0, mid));
+    const right = mergeSort(arr.slice(mid));
+
+    return merge(left, right);
+}
+
+function merge(left, right) {
+    const merged = [];
+    let i = 0;
+    let j = 0;
+
+    while (i < left.length && j < right.length) {
+        if (left[i] <= right[j]) {
+            merged.push(left[i]);
+            i++;
+        } else {
+            merged.push(right[j]);
+            j++;
+        }
+    }
+
+    return merged.concat(left.slice(i)).concat(right.slice(j));
+}
+
+// 測試
+const array = [5, 2, 8, 1, 6];
+console.log(mergeSort(array)); // [1, 2, 5, 6, 8]</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="index.html" style="color: #fff; text-decoration: none;">回到首頁</a> | &copy; 2026 合併排序教學</p>
+    </footer>
+</body>
+</html>
