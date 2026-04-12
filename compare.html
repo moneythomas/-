@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排序演算法比較</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; }
+        header, footer { background: #333; color: #fff; text-align: center; padding: 1rem 0; }
+        main { padding: 1rem 2rem; max-width: 1000px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+        th, td { border: 1px solid #ccc; padding: 0.75rem; text-align: left; }
+        th { background: #333; color: #fff; }
+        tr:nth-child(even) { background: #fafafa; }
+        nav a { color: #fff; text-decoration: none; }
+        h2 { margin-top: 1.5rem; }
+        code { background: #eef; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>排序演算法比較</h1>
+        <nav><a href="index.html">回到首頁</a></nav>
+    </header>
+    <main>
+        <section>
+            <p>本報告比較五種常見排序演算法：氣泡排序法、插入排序法、選擇排序法、合併排序法與堆積排序法。</p>
+        </section>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>演算法</th>
+                        <th>時間複雜度</th>
+                        <th>空間複雜度</th>
+                        <th>穩定性</th>
+                        <th>適合情境</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>氣泡排序法 (Bubble Sort)</td>
+                        <td>最佳 O(n), 平均 O(n²), 最壞 O(n²)</td>
+                        <td>O(1)</td>
+                        <td>穩定</td>
+                        <td>教學範例、小規模或幾乎已排序的資料</td>
+                    </tr>
+                    <tr>
+                        <td>插入排序法 (Insertion Sort)</td>
+                        <td>最佳 O(n), 平均 O(n²), 最壞 O(n²)</td>
+                        <td>O(1)</td>
+                        <td>穩定</td>
+                        <td>小資料集、近乎排序資料</td>
+                    </tr>
+                    <tr>
+                        <td>選擇排序法 (Selection Sort)</td>
+                        <td>最佳 O(n²), 平均 O(n²), 最壞 O(n²)</td>
+                        <td>O(1)</td>
+                        <td>不穩定</td>
+                        <td>資料量小、希望減少交換次數</td>
+                    </tr>
+                    <tr>
+                        <td>合併排序法 (Merge Sort)</td>
+                        <td>最佳 O(n log n), 平均 O(n log n), 最壞 O(n log n)</td>
+                        <td>O(n)</td>
+                        <td>穩定</td>
+                        <td>需對大資料集排序、穩定性重要時</td>
+                    </tr>
+                    <tr>
+                        <td>堆積排序法 (Heap Sort)</td>
+                        <td>最佳 O(n log n), 平均 O(n log n), 最壞 O(n log n)</td>
+                        <td>O(1)</td>
+                        <td>不穩定</td>
+                        <td>需要原地排序、希望穩定 n log n 時間</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>簡要比較</h2>
+            <ul>
+                <li><strong>氣泡排序法</strong>最簡單，但對大資料集效能最差。</li>
+                <li><strong>插入排序法</strong>當資料近乎已排序時效果很好，通常在小資料集上表現優異。</li>
+                <li><strong>選擇排序法</strong>交換次數少，但比較次數仍高，且不是穩定排序。</li>
+                <li><strong>合併排序法</strong>穩定且時間複雜度穩定，是大型資料排序的好選擇，但需要額外空間。</li>
+                <li><strong>堆積排序法</strong>時間穩定且只使用常數額外空間，適合對空間要求高的排序任務，但不是穩定排序。</li>
+            </ul>
+        </section>
+        <section>
+            <h2>演算法重點</h2>
+            <p>如果你需要選擇一種排序演算法：</p>
+            <ul>
+                <li>資料量很小：選擇插入排序或氣泡排序較簡單。</li>
+                <li>資料接近已排序：插入排序是最優選。</li>
+                <li>需要穩定排序：合併排序優於堆積排序。</li>
+                <li>需要原地排序且不希望使用額外空間：堆積排序是較好選擇。</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 排序演算法比較</p>
+    </footer>
+</body>
+</html>
